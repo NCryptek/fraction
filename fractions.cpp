@@ -124,3 +124,41 @@ Fraction Fraction ::operator++(int)
     numerator += denominator;
     return help;
 };
+Fraction Fraction ::operator+(Fraction right)
+{
+    int help1, help2;
+    help1 = denominator;
+    help2 = right.denominator;
+    numerator *= help2;
+    right.numerator *= help1;
+    numerator += right.numerator;
+    denominator *= right.denominator;
+    reduce();
+    return *this;
+};
+Fraction Fraction ::operator-(Fraction right)
+{
+    int help1, help2;
+    help1 = denominator;
+    help2 = right.denominator;
+    numerator *= help2;
+    right.numerator *= help1;
+    numerator -= right.numerator;
+    denominator *= right.denominator;
+    reduce();
+    return *this;
+}
+Fraction Fraction ::operator/(Fraction right)
+{
+    numerator *= right.denominator;
+    denominator *= right.numerator;
+    reduce();
+    return *this;
+}
+Fraction Fraction ::operator*(Fraction right)
+{
+    numerator *= right.numerator;
+    denominator *= right.denominator;
+    reduce();
+    return *this;
+}
