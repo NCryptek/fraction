@@ -1,5 +1,6 @@
 #include <iostream>
 #include "fractions.h"
+Fraction:: ~Fraction(){};
 Fraction::Fraction()
 {
     numerator = 0;
@@ -33,7 +34,7 @@ int NWD(int x, int y)
 }
 void Fraction::print_fraction()
 {
-    std::cout << numerator << "/" << denominator;
+    std::cout << numerator << "/" << denominator << "\n";
 }
 void Fraction::reduce()
 {
@@ -41,6 +42,14 @@ void Fraction::reduce()
     numerator /= NWD(numerator, denominator);
     denominator /= NWD(copy.numerator, copy.denominator);
 }
-void Fraction::print_float() {
-    
+void Fraction::print_float()
+{
+    std::cout << (double)numerator/denominator<< "\n";
 }
+
+Fraction Fraction :: operator = (Fraction right){
+    numerator = right.numerator;
+    denominator = right.denominator;
+    return *this;
+}
+
