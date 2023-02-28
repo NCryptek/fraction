@@ -91,3 +91,36 @@ Fraction Fraction ::operator*=(Fraction right)
     reduce();
     return *this;
 }
+Fraction Fraction::operator==(Fraction right)
+{
+    reduce();
+    right.reduce();
+    bool flag = 0;
+    flag = (numerator == right.numerator) && (denominator == right.denominator);
+    if (flag)
+        return true;
+    else
+        return false;
+};
+Fraction Fraction ::operator--()
+{
+    numerator -= denominator;
+    return *this;
+};
+Fraction Fraction ::operator--(int)
+{
+    Fraction help = *this;
+    numerator -= denominator;
+    return help;
+};
+Fraction Fraction ::operator++()
+{
+    numerator += denominator;
+    return *this;
+};
+Fraction Fraction ::operator++(int)
+{
+    Fraction help = *this;
+    numerator += denominator;
+    return help;
+};

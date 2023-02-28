@@ -17,5 +17,18 @@ public:
     Fraction operator-=(Fraction right);
     Fraction operator/=(Fraction right);
     Fraction operator*=(Fraction right);
+    Fraction operator==(Fraction right);
+    Fraction operator--();
+    Fraction operator--(int);
+    Fraction operator++();
+    Fraction operator++(int);
+    Fraction operator+(Fraction right);
+    Fraction operator+(int right);
+    Fraction operator-(Fraction right);
+    Fraction operator-(int right);
+    Fraction operator*(Fraction right);
+    Fraction operator*(int right);
+    Fraction operator/(Fraction right);
+    Fraction operator/(int right);
 };
 int NWD(int x, int y);
