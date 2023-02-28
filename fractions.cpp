@@ -1,6 +1,6 @@
 #include <iostream>
 #include "fractions.h"
-Fraction:: ~Fraction(){};
+Fraction::~Fraction(){};
 Fraction::Fraction()
 {
     numerator = 0;
@@ -44,12 +44,50 @@ void Fraction::reduce()
 }
 void Fraction::print_float()
 {
-    std::cout << (double)numerator/denominator<< "\n";
+    std::cout << (double)numerator / denominator << "\n";
 }
 
-Fraction Fraction :: operator = (Fraction right){
+Fraction Fraction ::operator=(Fraction right)
+{
     numerator = right.numerator;
     denominator = right.denominator;
     return *this;
 }
-
+Fraction Fraction ::operator+=(Fraction right)
+{
+    int help1, help2;
+    help1 = denominator;
+    help2 = right.denominator;
+    numerator *= help2;
+    right.numerator *= help1;
+    numerator += right.numerator;
+    denominator *= right.denominator;
+    reduce();
+    return *this;
+}
+Fraction Fraction ::operator-=(Fraction right)
+{
+    int help1, help2;
+    help1 = denominator;
+    help2 = right.denominator;
+    numerator *= help2;
+    right.numerator *= help1;
+    numerator -= right.numerator;
+    denominator *= right.denominator;
+    reduce();
+    return *this;
+}
+Fraction Fraction ::operator/=(Fraction right)
+{
+    numerator *= right.denominator;
+    denominator *= right.numerator;
+    reduce();
+    return *this;
+}
+Fraction Fraction ::operator*=(Fraction right)
+{
+    numerator *= right.numerator;
+    denominator *= right.denominator;
+    reduce();
+    return *this;
+}

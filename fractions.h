@@ -13,5 +13,9 @@ public:
     Fraction(int _numerator, int _denominator); // thirth cosntructor, using both numerator and denumerator
     ~Fraction();                                // deconstructor
     Fraction operator=(Fraction right);
+    Fraction operator+=(Fraction right);
+    Fraction operator-=(Fraction right);
+    Fraction operator/=(Fraction right);
+    Fraction operator*=(Fraction right);
 };
 int NWD(int x, int y);
