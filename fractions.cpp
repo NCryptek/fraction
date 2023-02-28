@@ -38,15 +38,14 @@ void Fraction::print_fraction()
 }
 void Fraction::reduce()
 {
-    Fraction copy(numerator, denominator);
-    numerator /= NWD(numerator, denominator);
-    denominator /= NWD(copy.numerator, copy.denominator);
+    int help = NWD(numerator, denominator);
+    numerator /= help;
+    denominator /= help;
 }
 void Fraction::print_float()
 {
     std::cout << (double)numerator / denominator << "\n";
 }
-
 Fraction Fraction ::operator=(Fraction right)
 {
     numerator = right.numerator;
@@ -162,3 +161,27 @@ Fraction Fraction ::operator*(Fraction right)
     reduce();
     return *this;
 }
+Fraction Fraction ::operator+(int right)
+{
+    numerator += denominator * right;
+    reduce();
+    return *this;
+};
+Fraction Fraction ::operator-(int right)
+{
+    numerator -= denominator * right;
+    reduce();
+    return *this;
+};
+Fraction Fraction ::operator/(int right)
+{
+    denominator *= right;
+    reduce();
+    return *this;
+};
+Fraction Fraction ::operator*(int right)
+{
+    numerator *= right;
+    reduce();
+    return *this;
+};
